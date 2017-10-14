@@ -9,13 +9,21 @@
 import UIKit
 
 class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    {code}
-    }
     
-    public func numberOfSections(in tableView: UITableView) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return 1
+        
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
+        
+        cell.textLabel?.text = "Temp Value!"
+        
+        return cell
+        
     }
     
     override func viewDidLoad() {
