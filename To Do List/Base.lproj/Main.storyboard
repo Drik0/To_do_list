@@ -58,14 +58,61 @@
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a task to the list..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osb-UQ-AYp">
+                                <rect key="frame" x="78" y="47" width="219" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Eg. Buy Bread" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XBx-1F-9x0">
+                                <rect key="frame" x="16" y="113" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="8rJ-Kc-sve" id="j2K-TL-SOa"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUT-pB-dja">
+                                <rect key="frame" x="166" y="216" width="43" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveBtnPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="chi-jK-J58"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item was added to the list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Prs-s2-lCf">
+                                <rect key="frame" x="16" y="260" width="343" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Prs-s2-lCf" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="16" id="0VG-BY-JGc"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="XBx-1F-9x0" secondAttribute="trailing" constant="16" id="4Jh-5l-Hbe"/>
+                            <constraint firstItem="XBx-1F-9x0" firstAttribute="top" secondItem="osb-UQ-AYp" secondAttribute="bottom" constant="38" id="Cyo-0X-GY2"/>
+                            <constraint firstItem="osb-UQ-AYp" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="27" id="M8N-io-NcV"/>
+                            <constraint firstItem="LUT-pB-dja" firstAttribute="top" secondItem="XBx-1F-9x0" secondAttribute="bottom" constant="73" id="QRM-FU-XGt"/>
+                            <constraint firstItem="osb-UQ-AYp" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="ZkP-MD-mCa"/>
+                            <constraint firstItem="XBx-1F-9x0" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="16" id="mIr-BV-5DN"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="Prs-s2-lCf" secondAttribute="trailing" constant="16" id="oe7-LF-hWk"/>
+                            <constraint firstItem="LUT-pB-dja" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="umF-ZM-hya"/>
+                            <constraint firstItem="Prs-s2-lCf" firstAttribute="top" secondItem="LUT-pB-dja" secondAttribute="bottom" constant="8" id="zgU-k7-wge"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="taskSaved" destination="Prs-s2-lCf" id="nU0-Ev-h3q"/>
+                        <outlet property="textField" destination="XBx-1F-9x0" id="iIl-kc-d6a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
