@@ -9,10 +9,12 @@
 import UIKit
 
 class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    // This array will hold all the information the user put on the next screen
+    var savedTask = [String] ()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 1
+        return savedTask.count
         
     }
 
@@ -20,7 +22,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     
         let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
         
-        cell.textLabel?.text = "Temp Value!"
+        cell.textLabel?.text = savedTask[indexPath.row]
         
         return cell
         
@@ -28,14 +30,17 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        assignArray()
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // Imports to the savedTask array the information stored in listArray
+    func assignArray() {
+        
+        let otherVC = SecondViewController()
+        savedTask = otherVC.listArray
+        
     }
-
 
 }
 
