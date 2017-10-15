@@ -9,6 +9,9 @@
 import UIKit
 
 class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var table: UITableView!
+    
     // This array will hold all the information the user put on the next screen
     var savedTask = [String] ()
     
@@ -31,6 +34,8 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+        
         assignArray()
         
     }
@@ -41,6 +46,9 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         savedTask = otherVC.listArray
         
     }
-
+    @objc func loadList(){
+        
+        self.table.reloadData()
+    }
 }
 

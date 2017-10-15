@@ -19,6 +19,11 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let arrayObject = UserDefaults.standard.object(forKey: "savedListArray")
+        if let array = arrayObject as? NSArray {
+            listArray = array as! [String]
+        }
+        
     }
 
     // Saves the task inside an array and sends a message informing task was saved
@@ -28,11 +33,14 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             
             listArray.append(task)
             
+            UserDefaults.standard.set(listArray, forKey: "savedListArray")
+            
             taskSaved.text = "\(task) was saved!"
             
             taskSaved.isHidden = false
             
         }
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
     }
     // Closes keyboard when it is open and user taps outside the keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
