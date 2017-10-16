@@ -14,8 +14,6 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var taskSaved: UILabel!
     
-    var listArray = [String] ()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,13 +25,11 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         
         if let task = textField.text {
             
-            listArray.append(task)
+            savedTask.append(task)
             
             taskSaved.text = "\(task) was saved!"
             
             taskSaved.isHidden = false
-            
-            savedTask = listArray
             
             UserDefaults.standard.set(savedTask, forKey: "toDoList")
             

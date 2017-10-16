@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+    // Global variable accessible on any view
     var savedTask = [String] ()
 
 
@@ -33,13 +33,21 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Loads the saved data
         let savedToDoList = UserDefaults.standard.object(forKey: "toDoList")
         if let list = savedToDoList as? NSArray {
             savedTask = list as! [String]
         }
     }
-  
+    // Adds the functionality to delete tasks
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            savedTask.remove(at: indexPath.row)
+        }
+        table.reloadData()
+        UserDefaults.standard.set(savedTask, forKey: "toDoList")
+    }
+    // What happens when this view appears
     override func viewDidAppear(_ animated: Bool) {
         
         table.reloadData()
