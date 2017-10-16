@@ -38,6 +38,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             UserDefaults.standard.set(savedTask, forKey: "toDoList")
             
         }
+        
+        textField.text = ""
+        
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(hideMessage), userInfo: nil, repeats: true)
     }
     
