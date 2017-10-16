@@ -34,6 +34,10 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let savedToDoList = UserDefaults.standard.object(forKey: "toDoList")
+        if let list = savedToDoList as? NSArray {
+            savedTask = list as! [String]
+        }
     }
   
     override func viewDidAppear(_ animated: Bool) {

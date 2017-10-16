@@ -35,6 +35,8 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             
             savedTask = listArray
             
+            UserDefaults.standard.set(savedTask, forKey: "toDoList")
+            
         }
         
     }
