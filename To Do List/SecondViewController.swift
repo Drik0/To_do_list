@@ -14,6 +14,10 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var taskSaved: UILabel!
     
+    var timer = Timer()
+    
+    var trackTimer = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +37,15 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             
             UserDefaults.standard.set(savedTask, forKey: "toDoList")
             
+        }
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(hideMessage), userInfo: nil, repeats: true)
+    }
+    
+    @objc func hideMessage() {
+        trackTimer = trackTimer + 1
+        if trackTimer == 3 {
+            taskSaved.isHidden = true
+            trackTimer = 0
         }
         
     }
